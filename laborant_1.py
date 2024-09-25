@@ -26,7 +26,10 @@ text = input('Оцените развлекательный комплекс:\n>
 corret_words = ['весело', 'увлекательно', 'развлечения']
 corret_numbers = []
 for i in range(len(corret_words)):
-    corret_numbers.append(text.find(corret_words[i]))
+    if corret_words[i] in text:
+        corret_numbers.append(text.find(corret_words[i]))
+    else:
+        continue
 print('Результат анализа:', *corret_numbers, sep=' ')
 
 print()
