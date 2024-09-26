@@ -64,7 +64,6 @@ def drofosek(n):
     first_n = int(text_n[0])
     middle_n = int(text_n[1])
     third_n = int(text_n[2])
-
     if (first_n + third_n) % 8 != 0 and middle_n == 3:
         return "Подходит"
     else:
