@@ -28,8 +28,10 @@ def count_num():
 #  3 ЗАДАНИЕ
 
 
-def second_max():
-    return 'НЕ СДЕЛАНО'
+def second_max(lista=[]):
+    n_max = max(lista)
+    lista.remove(max(lista))
+    return max(lista)
 
 
 #  4 ЗАДАНИЕ
