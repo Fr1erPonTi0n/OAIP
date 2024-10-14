@@ -2,12 +2,12 @@
 
 
 def count_str():
+    lens = []
     text = input()
-    count = 0
     while text != '':
-        count += 1
+        lens.append(str(len(text)))
         text = input()
-    return count
+    return ', '.join(lens)
 
 
 #  2 ЗАДАНИЕ
@@ -19,9 +19,7 @@ def count_num():
     while num < 36.6:
         if num < 0:
             count += 1
-            num = float(input())
-        else:
-            num = float(input())
+        num = float(input())
     return count
 
 
@@ -43,8 +41,6 @@ def min_num(n=str):
     for i in range(len(lista)):
         if int(lista[i]) > maxa:
             maxa = int(lista[i])
-        else:
-            continue
     return maxa
 
 
@@ -65,7 +61,7 @@ def check_num(n=int):
 #  6 ЗАДАНИЕ
 
 
-def IsPrime(n=int):
+def is_prime(n=int):
     d = 2
     while n % d != 0:
         d += 1
@@ -75,21 +71,23 @@ def IsPrime(n=int):
 def sum_num():
     n = 0
     for i in range(2, 10001):
-        if IsPrime(i):
+        if is_prime(i):
             n += i
-        else:
-            continue
     return n
 
 
 #  7 ЗАДАНИЕ
 
 
-def comparison(x1, y1, z1, x2, y2, z2):
-    if x1 > x2 and y1 > y2 and z1 > z2:
-        return 'Да'
-    else:
-        return 'Нет'
+def comparison(x1, y1, z1):
+    while True:
+        x2 = int(input())
+        y2 = int(input())
+        z2 = int(input())
+        if x1 < x2 and y1 < y2 and z1 < z2:
+            print('Нет')
+            break
+        print('Да')
 
 
 #  8 ЗАДАНИЕ
@@ -99,15 +97,9 @@ def read_str():
     text = input()
     min_text = ''
     while text != 'стоп':
-        if min_text == '':
+        if min_text == '' or len(text) < len(min_text):
             min_text = text[:]
-            text = input()
-        elif len(text) < len(min_text):
-            min_text = text[:]
-            text = input()
-        else:
-            text = input()
-            continue
+        text = input()
     return min_text
 
 
@@ -115,10 +107,26 @@ def read_str():
 
 
 def calculator():
-    nums = [input()]
-    while nums[-1] != 'стоп':
-        nums.append(input())
-    return eval(' '.join(nums[:-1]))
+    nums = input().split(', ')
+    count = 0
+    for i in range(len(nums)):
+        if i == 0:
+            count = int(nums[i])
+        elif nums[i] is int:
+            continue
+        else:
+            if nums[i] == '+':
+                count += int(nums[i + 1])
+            elif nums[i] == '-':
+                count -= int(nums[i + 1])
+            elif nums[i] == '*':
+                count *= int(nums[i + 1])
+            elif nums[i] == '/':
+                if count == 0 or int(nums[i + 1]) == 0:
+                    return 'Ошибка'
+                else:
+                    count /= int(nums[i + 1])
+    return count
 
 
 #  10 ЗАДАНИЕ
