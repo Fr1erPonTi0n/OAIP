@@ -133,16 +133,17 @@ def calculator():
 
 
 def text():
-    nums = [input()]
+    nums = input().split()
     n = 0
     texta = []
     output = []
     while nums[-1] != 'стоп':
-        nums.append(input())
-    nums.remove('стоп')
+        nums += input().split()
+    nums.pop(-1)
     for i in range(len(nums)):
-        if nums[i] == '!':
-            output.append(f'{" ".join(texta)}{"!"}')
+        if '!' in nums[i]:
+            word = nums[i][:-1]
+            output.append(f'{" ".join(texta)} {word}{"!"}')
             texta = []
         else:
             texta.append(nums[i])
