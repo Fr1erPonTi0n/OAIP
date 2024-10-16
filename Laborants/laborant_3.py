@@ -134,7 +134,6 @@ def calculator():
 
 def text():
     nums = input().split()
-    n = 0
     texta = []
     output = []
     while nums[-1] != 'стоп':
