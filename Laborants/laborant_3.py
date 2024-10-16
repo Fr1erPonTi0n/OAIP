@@ -142,8 +142,8 @@ def text():
     nums.pop(-1)
     for i in range(len(nums)):
         if '!' in nums[i]:
-            word = nums[i][:-1]
-            output.append(f'{" ".join(texta)} {word}{"!"}')
+            texta.append(nums[i][:-1])
+            output.append(f'{" ".join(texta)}{"!"}')
             texta = []
         else:
             texta.append(nums[i])
