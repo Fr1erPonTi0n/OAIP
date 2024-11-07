@@ -38,7 +38,7 @@ def posled_nums():
 
 def flags():
     flags = [input() for i in range(int(input()))]
-    return '\n'.join([flags[i % len(flags)] for i in range(int(input()))])
+    print('\n'.join([flags[i % len(flags)] for i in range(int(input()))]))
 
 
 #  6 ЗАДАНИЕ
