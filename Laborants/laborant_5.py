@@ -4,10 +4,8 @@
 def trafarets():
     nums = set()
     for i in range(int(input())):
-        text = input()
-        for j in range(len(text)):
-            nums.add(text[j])
-    return len(nums)
+        nums = nums.union(set(input()))
+    print(len(nums))
 
 
 #  2 ЗАДАНИЕ
