@@ -2,75 +2,64 @@
 
 
 def eight_print():
-    numbers = []
     for i in range(8):
-        numbers.append(input())
-    return ''.join(numbers)
+        print(i)
 
 
 #  2 ЗАДАНИЕ
 
 
 def order_of_people():
-    people = []
-    lista = []
-    for i in range(int(input())):
-        people.append(input())
-    for i in range(len(people)):
-        lista.append(f'{i + 1} {people[i]}')
-    return '\n'.join(lista)
+    for i in range(1, int(input()) + 1):
+        print(i, input())
 
 
 #  3 ЗАДАНИЕ
 
 
 def timbykto():
-    a = int(input())
-    b = int(input())
-    times_line = [str(a)]
-    while a + b <= 31:
-        a += b
-        times_line.append(str(a))
-    return ' '.join(times_line)
+    for i in range(int(input()), 31, int(input())):
+        print(i)
 
 
 #  4 ЗАДАНИЕ
 
 
 def max_letter():
-    char = input()
-    length = int(input())
-    text = input()
-    while True:
-        if (text.find(char * length) != -1) or (length == 0):
-            return length
-        length += -1
+    a, count, max_count = input(), 0, 0
+    for _ in range(int(input())):
+        if input() == a:
+            count += 1
+        else:
+            if count > max_count:
+                max_count = count
+            count = 0
+    else:
+        if count > max_count:
+            max_count = count
+    print(max_count)
 
 
 #  5 ЗАДАНИЕ
 
 
 def div():
-    a = int(input())
-    b = 1
-    c = 0
-    while b <= a:
-        if a % b == 0:
-            c += b
-        b += 1
-    return c
+    n, summ = int(input()), 0
+    for i in range(1, n + 1):
+        if n % i == 0:
+            summ += i
+    print(summ)
 
 
 #  6 ЗАДАНИЕ
 
 
 def russia_lang():
-    text = input()
-    count = 0
+    text, count = input(), 0
     for i in range(len(text)):
         if text[i] in 'аяоёэеуюыи':
             count += 1
-    return count
+    print(count)
 
 
 #  7 ЗАДАНИЕ
@@ -78,10 +67,8 @@ def russia_lang():
 
 def n_words():
     word = input()
-    words = []
-    for i in range(int(input())):
-        words.append(word)
-    return '\n'.join(words)
+    for i in range(1, int(input()) + 1):
+        print(f'{i}. {word}')
 
 
 #  8 ЗАДАНИЕ
@@ -91,24 +78,21 @@ def nomer():
     number = input()
     for i in range(len(number)):
         if number[i] not in '+1234567890':
-            return 'Неправильно номер телефона!'
-    return 'Bce ok!'
+            print('Неправильно номер телефона!')
+    print('Bce ok!')
 
 
 #  9 ЗАДАНИЕ
 
 
 def russia_password():
-    vowels = 'аеёиоуыэюя'
-    consonants = 'бвгджзйклмнпрстфхцчшщъь'
-    login = input().lower()
-    task = []
+    vowels, consonants, login, output = 'аеёиоуыэюя', 'бвгджзйклмнпрстфхцчшщъь', input().lower(), ''
     for i in login:
         if i in vowels:
-            task.append('0')
-        else:
-            task.append('1')
-    return ''.join(task)
+            output += '0'
+        elif i in consonants:
+            output += '1'
+    print(output)
 
 
 #  10 ЗАДАНИЕ
@@ -116,10 +100,5 @@ def russia_password():
 
 def debug_text():
     message = input()
-    output = []
-    last_letter = ''
-    for i in range(len(message)):
-        if last_letter != message[i]:
-            output.append(message[i])
-        last_letter = message[i]
-    return ''.join(output)
+    for i in range(0, len(message), 2):
+        print(message[i], end='')
