@@ -1,6 +1,5 @@
 def gears(data, n, m):
     a, b = {}, {}
-
     for gear_list in data:
         for gear in gear_list:
             if gear % n == 0 and gear >= n:
@@ -13,5 +12,4 @@ def gears(data, n, m):
                 if rm not in b and rm in a:
                     return a[rm], gear
                 b[rm] = gear
-
     return None, None
