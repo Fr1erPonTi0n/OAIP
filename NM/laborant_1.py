@@ -24,7 +24,7 @@ for elem in nums:
     num1 = approximate_value(elem, False)   # Число с написанной нашей функции, неустойчивый алгоритм.
     num2 = math.exp(elem)                        # Число из библиотеки math, функция exp.
     num3 = abs(num2 - num1) / num2               # Относительная погрешность
-    print(f"{f'x = {elem}':<15} {f's = {num1}':<30} {f'math_exp = {num2}':<40} {f'Δ = {num3}':<35}")
+    print(f"f{'x = {elem}':<15} {f's = {num1}':<30} {f'math_exp = {num2}':<40} {f'Δ = {num3}':<35}")
 
 print('УСТОЙЧИВЫЙ АЛГОРИТМ')
 for elem in nums:
